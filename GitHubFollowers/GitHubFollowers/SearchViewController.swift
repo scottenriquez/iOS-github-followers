@@ -1,20 +1,18 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  GitHubFollowers
 //
-//  Created by Scott Enriquez on 7/15/20.
+//  Created by Scott Enriquez on 7/19/20.
 //  Copyright © 2020 Scott Enriquez. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .systemPink
     }
-
-
+    
 }
-
