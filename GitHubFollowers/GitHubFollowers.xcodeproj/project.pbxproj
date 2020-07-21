@@ -13,6 +13,8 @@
 		D8898BA124BFBF7900E9EFBE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8898BA024BFBF7900E9EFBE /* SceneDelegate.swift */; };
 		D8898BA824BFBF7A00E9EFBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8898BA724BFBF7A00E9EFBE /* Assets.xcassets */; };
 		D8898BAB24BFBF7A00E9EFBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8898BA924BFBF7A00E9EFBE /* LaunchScreen.storyboard */; };
+		D8F4CF5E24C696AA004FAE24 /* GitHubFollowersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4CF5D24C696AA004FAE24 /* GitHubFollowersButton.swift */; };
+		D8F4CF6024C699D2004FAE24 /* GitHubUserSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4CF5F24C699D2004FAE24 /* GitHubUserSearchTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D8898BA724BFBF7A00E9EFBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8898BAA24BFBF7A00E9EFBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8898BAC24BFBF7A00E9EFBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8F4CF5D24C696AA004FAE24 /* GitHubFollowersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersButton.swift; sourceTree = "<group>"; };
+		D8F4CF5F24C699D2004FAE24 /* GitHubUserSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserSearchTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				D8898B9E24BFBF7900E9EFBE /* AppDelegate.swift */,
 				D8898BA024BFBF7900E9EFBE /* SceneDelegate.swift */,
 				D8493B5E24C4DA5B00154CC9 /* SearchViewController.swift */,
+				D8493B6024C4DA8F00154CC9 /* FavoritesListViewController.swift */,
+				D8F4CF5F24C699D2004FAE24 /* GitHubUserSearchTextField.swift */,
+				D8F4CF5D24C696AA004FAE24 /* GitHubFollowersButton.swift */,
 				D8898BA724BFBF7A00E9EFBE /* Assets.xcassets */,
 				D8898BA924BFBF7A00E9EFBE /* LaunchScreen.storyboard */,
 				D8898BAC24BFBF7A00E9EFBE /* Info.plist */,
-				D8493B6024C4DA8F00154CC9 /* FavoritesListViewController.swift */,
 			);
 			path = GitHubFollowers;
 			sourceTree = "<group>";
@@ -138,8 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8493B5F24C4DA5B00154CC9 /* SearchViewController.swift in Sources */,
+				D8F4CF6024C699D2004FAE24 /* GitHubUserSearchTextField.swift in Sources */,
 				D8898B9F24BFBF7900E9EFBE /* AppDelegate.swift in Sources */,
 				D8493B6124C4DA8F00154CC9 /* FavoritesListViewController.swift in Sources */,
+				D8F4CF5E24C696AA004FAE24 /* GitHubFollowersButton.swift in Sources */,
 				D8898BA124BFBF7900E9EFBE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
