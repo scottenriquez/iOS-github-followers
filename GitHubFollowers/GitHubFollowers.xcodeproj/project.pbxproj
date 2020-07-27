@@ -22,6 +22,7 @@
 		D8E0F02824CD2598000CB3EE /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0F02724CD2598000CB3EE /* GitHubUser.swift */; };
 		D8F4CF5E24C696AA004FAE24 /* GitHubFollowersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4CF5D24C696AA004FAE24 /* GitHubFollowersButton.swift */; };
 		D8F4CF6024C699D2004FAE24 /* GitHubUserSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4CF5F24C699D2004FAE24 /* GitHubUserSearchTextField.swift */; };
+		D8FA5A4F24CF1F9E00A83007 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA5A4E24CF1F9E00A83007 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D8E0F02724CD2598000CB3EE /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
 		D8F4CF5D24C696AA004FAE24 /* GitHubFollowersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersButton.swift; sourceTree = "<group>"; };
 		D8F4CF5F24C699D2004FAE24 /* GitHubUserSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserSearchTextField.swift; sourceTree = "<group>"; };
+		D8FA5A4E24CF1F9E00A83007 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		D8898B9D24BFBF7900E9EFBE /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				D8FA5A4D24CF1F8300A83007 /* Managers */,
 				D8E0F02324CD256E000CB3EE /* Model */,
 				D856858224CC9EBC004E9EF4 /* ViewComponents */,
 				D86A8EA324CC9E24004BCEB6 /* Extensions */,
@@ -125,6 +128,14 @@
 				D8E0F02724CD2598000CB3EE /* GitHubUser.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D8FA5A4D24CF1F8300A83007 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D8FA5A4E24CF1F9E00A83007 /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 				D86A8E9A24CC902C004BCEB6 /* GitHubFollowersAlertViewController.swift in Sources */,
 				D86A8E9824CC8F3F004BCEB6 /* GitHubFollowersBodyLabel.swift in Sources */,
 				D8F4CF5E24C696AA004FAE24 /* GitHubFollowersButton.swift in Sources */,
+				D8FA5A4F24CF1F9E00A83007 /* NetworkManager.swift in Sources */,
 				D86A8E9C24CC99C9004BCEB6 /* UIViewControllerExtension.swift in Sources */,
 				D8E0F02824CD2598000CB3EE /* GitHubUser.swift in Sources */,
 				D8898BA124BFBF7900E9EFBE /* SceneDelegate.swift in Sources */,
