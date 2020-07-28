@@ -18,32 +18,32 @@ class NetworkManager {
         
     }
     
-    func getFollowers(for username: String, page: Int, completionHandler: @escaping ([GitHubFollower]?, String?) -> Void) {
+    func getFollowers(for username: String, page: Int, completionHandler: @escaping (Result<[GitHubFollower], CustomError>) -> Void) {
         let followersURLString = baseURL + "users/\(username)/followers?per_page=\(pageSize)&page=\(page)"
         guard let followersURL = URL(string: followersURLString) else {
-            completionHandler(nil, "The username supplied creates an invalid HTTP request")
+            completionHandler(.failure(CustomError.invalidURL))
             return
         }
         let task = URLSession.shared.dataTask(with: followersURL) { (data, response, error) in
             if let _ = error {
-                completionHandler(nil, "An error occurred when making a network call")
+                completionHandler(.failure(CustomError.networkFailure))
             }
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completionHandler(nil, "The server returned an invalid response")
+                completionHandler(.failure(CustomError.invalidHTTPResponse))
                 return
             }
             guard let data = data else {
-                completionHandler(nil, "An error occured when reading the data")
+                completionHandler(.failure(CustomError.dataReadFailure))
                 return
             }
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let followers = try decoder.decode([GitHubFollower].self, from: data)
-                completionHandler(followers, nil)
+                completionHandler(.success(followers))
             }
             catch {
-                completionHandler(nil, "An error occured when decoding the JSON response")
+                completionHandler(.failure(CustomError.decodingFailure))
             }
         }
         task.resume()
