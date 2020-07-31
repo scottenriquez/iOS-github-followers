@@ -39,7 +39,6 @@ class SearchViewController: UIViewController {
             presentGitHubFollowersAlertOnMainThread(alertTitle: "Empty Username", message: "Please enter a username.", buttonTitle: "Ok")
             return
         }
-        print("Username: \(isUsernameEntered)")
         let followerListViewController = FollowerListViewController()
         followerListViewController.username = usernameTextField.text
         followerListViewController.title = usernameTextField.text

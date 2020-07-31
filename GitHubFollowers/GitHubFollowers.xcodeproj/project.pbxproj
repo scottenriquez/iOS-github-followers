@@ -21,6 +21,8 @@
 		D8C35D1B24CB6550008AD074 /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C35D1A24CB6550008AD074 /* FollowerListViewController.swift */; };
 		D8E0F02624CD258C000CB3EE /* GitHubFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0F02524CD258C000CB3EE /* GitHubFollower.swift */; };
 		D8E0F02824CD2598000CB3EE /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0F02724CD2598000CB3EE /* GitHubUser.swift */; };
+		D8E60AAA24D3A79C009CBFAF /* GitHubFollowerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E60AA924D3A79C009CBFAF /* GitHubFollowerCollectionViewCell.swift */; };
+		D8E60AAC24D3A81E009CBFAF /* GitHubAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E60AAB24D3A81E009CBFAF /* GitHubAvatarImageView.swift */; };
 		D8F4CF5E24C696AA004FAE24 /* GitHubFollowersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4CF5D24C696AA004FAE24 /* GitHubFollowersButton.swift */; };
 		D8F4CF6024C699D2004FAE24 /* GitHubUserSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4CF5F24C699D2004FAE24 /* GitHubUserSearchTextField.swift */; };
 		D8FA5A4F24CF1F9E00A83007 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FA5A4E24CF1F9E00A83007 /* NetworkManager.swift */; };
@@ -43,6 +45,8 @@
 		D8C35D1A24CB6550008AD074 /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
 		D8E0F02524CD258C000CB3EE /* GitHubFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollower.swift; sourceTree = "<group>"; };
 		D8E0F02724CD2598000CB3EE /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
+		D8E60AA924D3A79C009CBFAF /* GitHubFollowerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowerCollectionViewCell.swift; sourceTree = "<group>"; };
+		D8E60AAB24D3A81E009CBFAF /* GitHubAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAvatarImageView.swift; sourceTree = "<group>"; };
 		D8F4CF5D24C696AA004FAE24 /* GitHubFollowersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersButton.swift; sourceTree = "<group>"; };
 		D8F4CF5F24C699D2004FAE24 /* GitHubUserSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserSearchTextField.swift; sourceTree = "<group>"; };
 		D8FA5A4E24CF1F9E00A83007 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -62,10 +66,12 @@
 		D856858224CC9EBC004E9EF4 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				D8E60AA824D3A760009CBFAF /* Cells */,
 				D8F4CF5F24C699D2004FAE24 /* GitHubUserSearchTextField.swift */,
 				D8F4CF5D24C696AA004FAE24 /* GitHubFollowersButton.swift */,
 				D86A8E9524CC8DC3004BCEB6 /* GitHubFollowersTitleLabel.swift */,
 				D86A8E9724CC8F3F004BCEB6 /* GitHubFollowersBodyLabel.swift */,
+				D8E60AAB24D3A81E009CBFAF /* GitHubAvatarImageView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -139,6 +145,14 @@
 				D8E0F02724CD2598000CB3EE /* GitHubUser.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D8E60AA824D3A760009CBFAF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D8E60AA924D3A79C009CBFAF /* GitHubFollowerCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		D8FA5A4D24CF1F8300A83007 /* Managers */ = {
@@ -224,12 +238,14 @@
 				D8898B9F24BFBF7900E9EFBE /* AppDelegate.swift in Sources */,
 				D8C35D1B24CB6550008AD074 /* FollowerListViewController.swift in Sources */,
 				D8E0F02624CD258C000CB3EE /* GitHubFollower.swift in Sources */,
+				D8E60AAA24D3A79C009CBFAF /* GitHubFollowerCollectionViewCell.swift in Sources */,
 				D8B82F9924D054BA00AEC841 /* CustomError.swift in Sources */,
 				D86A8E9624CC8DC3004BCEB6 /* GitHubFollowersTitleLabel.swift in Sources */,
 				D8493B6124C4DA8F00154CC9 /* FavoritesListViewController.swift in Sources */,
 				D86A8E9A24CC902C004BCEB6 /* GitHubFollowersAlertViewController.swift in Sources */,
 				D86A8E9824CC8F3F004BCEB6 /* GitHubFollowersBodyLabel.swift in Sources */,
 				D8F4CF5E24C696AA004FAE24 /* GitHubFollowersButton.swift in Sources */,
+				D8E60AAC24D3A81E009CBFAF /* GitHubAvatarImageView.swift in Sources */,
 				D8FA5A4F24CF1F9E00A83007 /* NetworkManager.swift in Sources */,
 				D86A8E9C24CC99C9004BCEB6 /* UIViewControllerExtension.swift in Sources */,
 				D8E0F02824CD2598000CB3EE /* GitHubUser.swift in Sources */,
