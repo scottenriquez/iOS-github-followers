@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D8493B5F24C4DA5B00154CC9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8493B5E24C4DA5B00154CC9 /* SearchViewController.swift */; };
 		D8493B6124C4DA8F00154CC9 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8493B6024C4DA8F00154CC9 /* FavoritesListViewController.swift */; };
+		D85D72BA24D613C800AA7779 /* FlowLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D72B924D613C800AA7779 /* FlowLayoutHelper.swift */; };
 		D86A8E9624CC8DC3004BCEB6 /* GitHubFollowersTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86A8E9524CC8DC3004BCEB6 /* GitHubFollowersTitleLabel.swift */; };
 		D86A8E9824CC8F3F004BCEB6 /* GitHubFollowersBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86A8E9724CC8F3F004BCEB6 /* GitHubFollowersBodyLabel.swift */; };
 		D86A8E9A24CC902C004BCEB6 /* GitHubFollowersAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86A8E9924CC902C004BCEB6 /* GitHubFollowersAlertViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		D8493B5E24C4DA5B00154CC9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D8493B6024C4DA8F00154CC9 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
+		D85D72B924D613C800AA7779 /* FlowLayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayoutHelper.swift; sourceTree = "<group>"; };
 		D86A8E9524CC8DC3004BCEB6 /* GitHubFollowersTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersTitleLabel.swift; sourceTree = "<group>"; };
 		D86A8E9724CC8F3F004BCEB6 /* GitHubFollowersBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersBodyLabel.swift; sourceTree = "<group>"; };
 		D86A8E9924CC902C004BCEB6 /* GitHubFollowersAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersAlertViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 			path = ViewComponents;
 			sourceTree = "<group>";
 		};
+		D85D72B824D613A800AA7779 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D85D72B924D613C800AA7779 /* FlowLayoutHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D86A8EA124CC9DD7004BCEB6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +124,7 @@
 		D8898B9D24BFBF7900E9EFBE /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				D85D72B824D613A800AA7779 /* Helpers */,
 				D8B82F9524D050BC00AEC841 /* Enum */,
 				D8FA5A4D24CF1F8300A83007 /* Managers */,
 				D8E0F02324CD256E000CB3EE /* Model */,
@@ -238,6 +249,7 @@
 				D8898B9F24BFBF7900E9EFBE /* AppDelegate.swift in Sources */,
 				D8C35D1B24CB6550008AD074 /* FollowerListViewController.swift in Sources */,
 				D8E0F02624CD258C000CB3EE /* GitHubFollower.swift in Sources */,
+				D85D72BA24D613C800AA7779 /* FlowLayoutHelper.swift in Sources */,
 				D8E60AAA24D3A79C009CBFAF /* GitHubFollowerCollectionViewCell.swift in Sources */,
 				D8B82F9924D054BA00AEC841 /* CustomError.swift in Sources */,
 				D86A8E9624CC8DC3004BCEB6 /* GitHubFollowersTitleLabel.swift in Sources */,
