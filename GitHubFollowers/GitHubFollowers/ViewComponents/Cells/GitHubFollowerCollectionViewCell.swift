@@ -26,7 +26,7 @@ class GitHubFollowerCollectionViewCell: UICollectionViewCell {
     
     func mapFollowerData(for follower: GitHubFollower) {
         usernameLabel.text = follower.login
-        
+        avatarImageView.downloadAvatarImage(at: follower.avatarUrl)
     }
     
     func configure() {

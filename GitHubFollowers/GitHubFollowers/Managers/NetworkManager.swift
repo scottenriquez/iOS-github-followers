@@ -6,14 +6,14 @@
 //  Copyright © 2020 Scott Enriquez. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     
     static let shared = NetworkManager()
-    let baseURL = "https://api.github.com/"
-    let pageSize = 100
-    
+    private let baseURL = "https://api.github.com/"
+    private let pageSize = 100
+
     private init() {
         
     }
