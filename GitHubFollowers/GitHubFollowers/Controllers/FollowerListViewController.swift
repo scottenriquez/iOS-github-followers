@@ -15,6 +15,8 @@ class FollowerListViewController: UIViewController {
     }
     
     var username: String!
+    var currentPage = 1
+    var userHasMoreFollowers = true
     var gitHubFollowers: [GitHubFollower] = []
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, GitHubFollower>!
@@ -24,7 +26,7 @@ class FollowerListViewController: UIViewController {
         configureViewController()
         configureCollectionView()
         configureUICollectionViewDataSource()
-        fetchGitHubFollowersForEnteredUsername()
+        fetchGitHubFollowers(for: username, page: currentPage)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,16 +42,20 @@ class FollowerListViewController: UIViewController {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: FlowLayoutHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
+        collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         collectionView.register(GitHubFollowerCollectionViewCell.self, forCellWithReuseIdentifier: GitHubFollowerCollectionViewCell.reuseID)
     }
     
-    func fetchGitHubFollowersForEnteredUsername() {
-        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+    func fetchGitHubFollowers(for username: String, page: Int) {
+        showLoadingView()
+        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             guard let self = self else { return }
+            self.dismissLoadingView()
             switch result {
-            case .success(let followers):
-                self.gitHubFollowers = followers
+            case .success(let followersForCurrentPage):
+                self.userHasMoreFollowers = followersForCurrentPage.count == 100
+                self.gitHubFollowers.append(contentsOf: followersForCurrentPage)
                 self.updateData()
             case .failure(let customError):
                 self.presentGitHubFollowersAlertOnMainThread(alertTitle: "Network Error", message: customError.rawValue, buttonTitle: "Ok")
@@ -73,4 +79,19 @@ class FollowerListViewController: UIViewController {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }
+}
+
+extension FollowerListViewController: UICollectionViewDelegate {
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        if offsetY > contentHeight - height {
+            guard userHasMoreFollowers else { return }
+            currentPage += 1
+            fetchGitHubFollowers(for: username, page: currentPage)
+        }
+    }
+    
 }
