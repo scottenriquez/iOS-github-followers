@@ -56,6 +56,12 @@ class FollowerListViewController: UIViewController {
             case .success(let followersForCurrentPage):
                 self.userHasMoreFollowers = followersForCurrentPage.count == 100
                 self.gitHubFollowers.append(contentsOf: followersForCurrentPage)
+                if self.gitHubFollowers.isEmpty {
+                    let message = "This user doesn't have any followers. You should follow them!"
+                    DispatchQueue.main.async {
+                        self.showEmptyStateView(with: message, in: self.view)
+                    }
+                }
                 self.updateData()
             case .failure(let customError):
                 self.presentGitHubFollowersAlertOnMainThread(alertTitle: "Network Error", message: customError.rawValue, buttonTitle: "Ok")
