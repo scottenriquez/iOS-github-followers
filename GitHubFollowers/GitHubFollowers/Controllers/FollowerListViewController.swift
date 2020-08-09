@@ -18,12 +18,14 @@ class FollowerListViewController: UIViewController {
     var currentPage = 1
     var userHasMoreFollowers = true
     var gitHubFollowers: [GitHubFollower] = []
+    var filteredGitHubFollowers: [GitHubFollower] = []
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, GitHubFollower>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureSearchController()
         configureCollectionView()
         configureUICollectionViewDataSource()
         fetchGitHubFollowers(for: username, page: currentPage)
@@ -47,6 +49,14 @@ class FollowerListViewController: UIViewController {
         collectionView.register(GitHubFollowerCollectionViewCell.self, forCellWithReuseIdentifier: GitHubFollowerCollectionViewCell.reuseID)
     }
     
+    func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for a username"
+        navigationItem.searchController = searchController
+    }
+    
     func fetchGitHubFollowers(for username: String, page: Int) {
         showLoadingView()
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
@@ -62,7 +72,7 @@ class FollowerListViewController: UIViewController {
                         self.showEmptyStateView(with: message, in: self.view)
                     }
                 }
-                self.updateData()
+                self.updateData(with: self.gitHubFollowers)
             case .failure(let customError):
                 self.presentGitHubFollowersAlertOnMainThread(alertTitle: "Network Error", message: customError.rawValue, buttonTitle: "Ok")
             }
@@ -77,10 +87,10 @@ class FollowerListViewController: UIViewController {
         })
     }
     
-    func updateData() {
+    func updateData(with followers: [GitHubFollower]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, GitHubFollower>()
         snapshot.appendSections([.main])
-        snapshot.appendItems(gitHubFollowers)
+        snapshot.appendItems(followers)
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
@@ -100,4 +110,17 @@ extension FollowerListViewController: UICollectionViewDelegate {
         }
     }
     
+}
+
+extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        filteredGitHubFollowers = gitHubFollowers.filter { $0.login.lowercased().contains(filter.lowercased()) }
+        updateData(with: filteredGitHubFollowers)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(with: gitHubFollowers)
+    }
 }
