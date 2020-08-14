@@ -17,6 +17,7 @@ class FollowerListViewController: UIViewController {
     var username: String!
     var currentPage = 1
     var userHasMoreFollowers = true
+    var isSearching = false
     var gitHubFollowers: [GitHubFollower] = []
     var filteredGitHubFollowers: [GitHubFollower] = []
     var collectionView: UICollectionView!
@@ -110,17 +111,29 @@ extension FollowerListViewController: UICollectionViewDelegate {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let activeArray = isSearching ? filteredGitHubFollowers : gitHubFollowers
+        let follower = activeArray[indexPath.item]
+        let destinationViewController = UserInformationViewController()
+        destinationViewController.username = follower.login
+        let navigationController = UINavigationController(rootViewController: destinationViewController)
+        present(navigationController, animated: true)
+    }
+    
 }
 
 extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        isSearching = true
         filteredGitHubFollowers = gitHubFollowers.filter { $0.login.lowercased().contains(filter.lowercased()) }
         updateData(with: filteredGitHubFollowers)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
         updateData(with: gitHubFollowers)
     }
+    
 }
